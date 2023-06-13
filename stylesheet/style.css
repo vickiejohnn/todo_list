@@ -1,0 +1,53 @@
+/* General */
+
+* 
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar */
+
+nav.navbar 
+{
+    color: #000442;
+}
+
+nav.navbar .navbar-brand 
+{
+    font-style: oblique;
+    color: #ffb643;
+    text-shadow: 1px 1px .5px #000442;
+}
+
+/* Hero */
+
+section.hero-section .hero-container
+{
+    background: #000442;
+    height: 95vh;
+}
+
+section.hero-section .hero-container .get-started h3
+{
+    color: #ffb643;
+    font-size: 3rem;
+}
+
+section.hero-section .hero-container .get-started button
+{
+    background: #ffb643;    
+    color: #000442;
+}
+
+section.hero-section .hero-container .get-started button:hover
+{
+    background: #000442;    
+    color: #ffb643;
+    border: 1px solid #ffb643;
+}
+
+section.hero-section .hero-container .image 
+{
+    text-align: center;
+    padding-top: 5rem;
+}
