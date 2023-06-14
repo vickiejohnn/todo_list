@@ -3,8 +3,10 @@
 * 
 {
     font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none !important;
 }
 
+/* ------ Landing Page ------ */
 /* Navbar */
 
 nav.navbar 
@@ -35,7 +37,7 @@ section.hero-section .hero-container .get-started h3
 
 section.hero-section .hero-container .get-started button
 {
-    background: #ffb643;    
+    background: #ffb643;
     color: #000442;
 }
 
@@ -51,3 +53,64 @@ section.hero-section .hero-container .image
     text-align: center;
     padding-top: 5rem;
 }
+/* ------ Landing Page Ends ------ */
+
+/* Sign Up/In Body */
+body.register-page
+{
+    background: url('https://img.freepik.com/premium-photo/blank-sheet-with-place-text-bright-desktop-neo-mint-color_79087-2781.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body.register-page p a{
+    color: #000442;
+    font-weight: bold;
+}
+
+/* ------ Sign Up Page ------ */
+
+.sign-up-container,
+.sign-in-container
+{
+    background: #ffb643;
+    color: #000442;
+}
+
+.sign-up-container button
+{
+    background: #000442;
+    color: #ffb643;
+}
+
+.sign-up-container button:hover
+{
+    background: #ffb643;
+    color: #000442;
+    border: 1px solid #000442;
+}
+
+@media (max-width: 688px) 
+{
+    body.register-page
+    {
+        background-repeat: repeat;
+        margin-top: 8rem;
+    }
+}
+
+/* Sign In Page */
+.sign-in-container button
+{
+    background: #000442;
+    color: #ffb643;
+}
+
+.sign-in-container button:hover
+{
+    background: #ffb643;
+    color: #000442;
+    border: 1px solid #000442;
+}
+
+/* ------ Sign Up Page Ends ------ */
