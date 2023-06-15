@@ -17,16 +17,59 @@ const signUp = ()=> {
             Email: email.value,
             Password: password.value
         }
-        allUsers.push(userDetails)
-        localStorage.setItem('localUsers', JSON.stringify(allUsers))
-        swal("Successful!", "You've registered successfully!", "success")
-        console.log('Registration successful!');
-        setTimeout(() => {
-            window.location.href = 'signIn.html'
-        }, 3000);
+
+        // Get the information in the localStorage if it exists and add userDetails to it
+        if (localStorage.localUsers) {
+            allUsers = JSON.parse(localStorage.getItem('localUsers'))
+            allUsers.map((user) => {
+                const userEmail = document.getElementById('email')
+                if (userEmail.value == user.Email) {
+                    swal('Email Already Exists!', 'Kindly another email address!', 'warning')
+                    setTimeout(()=> {
+                        window.location.href = 'signUp.html'
+                    }, 1000)
+                } else {
+                    allUsers.push(userDetails)
+                    localStorage.setItem('localUsers', JSON.stringify(allUsers))
+        
+                    // Set the input fields to empty
+                    firstName.value = ''
+                    lastName.value = ''
+                    email.value = ''
+                    password.value = ''
+        
+                    // Alert successful
+                    swal("Successful!", "You've registered successfully!", "success")
+        
+                    // Redirect to sign in page after 3 seconds
+                    setTimeout(() => {
+                        window.location.href = 'signIn.html'
+                    }, 2000);
+                }
+            })
+        } else {
+            allUsers.push(userDetails)
+            localStorage.setItem('localUsers', JSON.stringify(allUsers))
+            
+            // Set the input fields to empty
+            firstName.value = ''
+            lastName.value = ''
+            email.value = ''
+            password.value = ''
+
+            // Alert successful
+            swal("Successful!", "You've registered successfully!", "success")
+
+            // Redirect to sign in page after 3 seconds
+            setTimeout(() => {
+                window.location.href = 'signIn.html'
+            }, 2000);
+        }
     }
     else {
         swal("Invalid Details!", "Kindly fill out the fields correctly!", "error")
-        console.log('Invalid Details!');
+        setTimeout(()=> {
+            window.location.href = 'signUp.html'
+        }, 1000)
     }
 }
