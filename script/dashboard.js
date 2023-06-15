@@ -18,8 +18,7 @@ const user = getUserFromLocalStorage();
 
 if (user !== null) {
     console.log(user);
-    welcomeUser.innerHTML = `<h1>Welcome, ${user.FirstName}</h1>`
-
+    welcomeUser.innerHTML = `<h5 class="fw-bold welcome-text">Welcome, ${user.FirstName}</h5>`
   } else {
     console.log('User not found.');
   }

@@ -58,9 +58,10 @@ section.hero-section .hero-container .image
 /* Sign Up/In, Dashboard Body */
 body
 {
-    background: url('https://img.freepik.com/premium-photo/blank-sheet-with-place-text-bright-desktop-neo-mint-color_79087-2781.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
+    background: url('https://img.freepik.com/free-photo/view-arrangement-with-keyboard-notebooks_23-2148847749.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
     background-size: cover;
     background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
 }
 
 body.register-page p a
@@ -95,7 +96,9 @@ body.register-page p a
 {
     body
     {
+        background: url('https://img.freepik.com/free-photo/clipboard-with-list-desk-top-view_23-2148938744.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
         background-repeat: repeat;
+        backdrop-filter: blur(20px) !important;
         margin-top: 8rem;
     }
 }
@@ -115,3 +118,37 @@ body.register-page p a
 }
 
 /* ------ Sign Up Page Ends ------ */
+
+/* ------ Dashboard ------ */
+
+.dashboard-container .todo-form
+{
+    background-image: linear-gradient(to left, #000442, #ffb643);
+}
+.dashboard-container .user-task
+{
+    background-image: linear-gradient(to right, #000442, #ffb643);
+}
+.dashboard-container .todo-heading
+{
+    color: #ffb643;
+}
+.dashboard-container .welcome-user .welcome-text
+{
+    color: #ffb643;
+}
+.dashboard-container .logout-btn
+{
+    background: #000442;
+    color: #ffb643;
+}
+.dashboard-container .add-todo-btn 
+{
+    background: #ffb643;
+    color: #000442;
+}
+.dashboard-container .no-task-text 
+{
+    background: #ffb643;
+    color: #000442;
+}

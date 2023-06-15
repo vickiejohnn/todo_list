@@ -8,13 +8,57 @@
         <link rel="stylesheet" href="../stylesheet/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Devking - Sign In Page</title>
+        <title>Devking - Dashboard</title>
     </head>
 
     <body>
+        <div class="container-fluid dashboard-container row shadow mx-auto">
+            <div class="col-12 col-md-4 p-2 p-md-4 rounded">
+                <div class="todo todo-form bg-info rounded p-2 p-md-4">
+                    <h2 class="text-center todo-heading">Add Task</h2>
+                    <div class="form-group my-3">
+                        <input type="text" class="form-control" placeholder="Enter todo title..." id="title">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="text" class="form-control" placeholder="Enter todo category..." id="categoty">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="text" class="form-control" placeholder="Enter todo description..." id="description">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="datetime" class="form-control" placeholder="Enter todo time..." id="time">
+                    </div>
+                    <div class="form-group my-3">
+                        <button class="btn add-todo-btn fw-bold w-100" id="addTodoBtn">Add Todo</button>
+                    </div>
+                    <div class="form-img text-center d-none d-md-block">
+                        <img src="../img/dashboard-img-1.png" alt="" class="w-50">
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 p-2 p-md-4 rounded">
+                <div class="todo user-task p-2 p-md-4 bg-info rounded">
+                    <nav class="row border-bottom mb-2">
+                        <div class="col-6">
+                            <div class="welcome-user"></div>
+                        </div>
+                        <div class="col-6">
+                            <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
+                        </div>
+                    </nav>
 
-        <a href="signIn.html">Logout</a>
-        <div class="welcome-user"></div>
+                    <h2 class="text-center todo-heading">Your Tasks</h2>
+                    <div class="no-task">
+                        <div class="no-task-text rounded p-2 text-center">
+                            <h5>You have no task yet, kindly add your tasks...</h5>
+                        </div>
+                        <div class="no-task-img text-center">
+                            <img src="../img/dashboard-img.png" class="w-50" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
 
