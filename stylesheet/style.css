@@ -55,15 +55,16 @@ section.hero-section .hero-container .image
 }
 /* ------ Landing Page Ends ------ */
 
-/* Sign Up/In Body */
-body.register-page
+/* Sign Up/In, Dashboard Body */
+body
 {
     background: url('https://img.freepik.com/premium-photo/blank-sheet-with-place-text-bright-desktop-neo-mint-color_79087-2781.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-body.register-page p a{
+body.register-page p a
+{
     color: #000442;
     font-weight: bold;
 }
@@ -92,7 +93,7 @@ body.register-page p a{
 
 @media (max-width: 688px) 
 {
-    body.register-page
+    body
     {
         background-repeat: repeat;
         margin-top: 8rem;

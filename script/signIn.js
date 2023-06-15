@@ -5,11 +5,12 @@ signInBtn.addEventListener('click', ()=> {
     
     // Function to check if the provided email and password match a user in the array
     const signIn = (email, password) => {
-        // The array.find() line to search for a user with the provided email
-        const user = allUsers.find(user => user.Email == email)
+        // The array.findIndex() line to search for a user with the index and the provided email
+        const userIndex = allUsers.findIndex(user => user.Email == email)
     
         // If a user is found and the password matches, return true
-        if (user && user.Password == password) {
+        if (userIndex !== -1 && allUsers[userIndex].Password == password) {
+            localStorage.setItem('userIndex', userIndex)
             return true;
         }
     
@@ -34,3 +35,5 @@ signInBtn.addEventListener('click', ()=> {
         }, 3000)
     }
 })  
+
+  
