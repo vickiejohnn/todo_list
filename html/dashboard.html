@@ -15,18 +15,29 @@
         <div class="container-fluid dashboard-container row shadow mx-auto">
             <div class="col-12 col-md-4 p-2 p-md-4 rounded">
                 <div class="todo todo-form bg-info rounded p-2 p-md-4">
-                    <h2 class="text-center todo-heading">Add Task</h2>
+                    <nav class="border-bottom mb-2 d-block d-md-none text-white">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="welcome-user sm-welcome"></div>
+                            </div>
+                            <div class="col-6">
+                                <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <h2 class="text-center todo-heading text-decoration-underline">Add Task</h2>
                     <div class="form-group my-3">
                         <input type="text" class="form-control" placeholder="Enter todo title..." id="title">
                     </div>
                     <div class="form-group my-3">
-                        <input type="text" class="form-control" placeholder="Enter todo category..." id="categoty">
+                        <input type="text" class="form-control" placeholder="Enter todo category..." id="category">
                     </div>
                     <div class="form-group my-3">
                         <input type="text" class="form-control" placeholder="Enter todo description..." id="description">
                     </div>
                     <div class="form-group my-3">
-                        <input type="datetime" class="form-control" placeholder="Enter todo time..." id="time">
+                        <input type="datetime-local" class="form-control" placeholder="Enter todo time..." id="time">
                     </div>
                     <div class="form-group my-3">
                         <button class="btn add-todo-btn fw-bold w-100" id="addTodoBtn">Add Todo</button>
@@ -38,24 +49,38 @@
             </div>
             <div class="col-12 col-md-8 p-2 p-md-4 rounded">
                 <div class="todo user-task p-2 p-md-4 bg-info rounded">
-                    <nav class="row border-bottom mb-2">
-                        <div class="col-6">
-                            <div class="welcome-user"></div>
-                        </div>
-                        <div class="col-6">
-                            <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
+                    <nav class="border-bottom mb-2 d-none d-md-block">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="welcome-user lg-welcome"></div>
+                            </div>
+                            <div class="col-6">
+                                <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
+                            </div>
                         </div>
                     </nav>
 
-                    <h2 class="text-center todo-heading">Your Tasks</h2>
+                    <h2 class="text-center todo-heading text-decoration-underline">Your Tasks</h2>
                     <div class="no-task">
                         <div class="no-task-text rounded p-2 text-center">
-                            <h5>You have no task yet, kindly add your tasks...</h5>
+                            <h5 class="no-task-h5">You have no task yet, kindly add your tasks...</h5>
                         </div>
                         <div class="no-task-img text-center">
                             <img src="../img/dashboard-img.png" class="w-50" alt="">
                         </div>
                     </div>
+                    
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="row rounded" id="displayTasks"></div>
+                        </div>
+                        <div class="col-6 task-image d-none d-md-block">
+                            <div class="text-center">
+                                <img src="../img/dashboard-img.png" class="w-100" alt="">
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

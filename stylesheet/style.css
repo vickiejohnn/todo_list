@@ -142,10 +142,22 @@ body.register-page p a
     background: #000442;
     color: #ffb643;
 }
+.dashboard-container .logout-btn:hover
+{
+    border: .5px solid #000442;
+    background: none;
+    color: #000442;
+}
 .dashboard-container .add-todo-btn 
 {
-    background: #ffb643;
-    color: #000442;
+    background: #000442;
+    color: #ffb643;
+    transition: 1s ease;
+}
+.dashboard-container .add-todo-btn:hover 
+{
+    background: linear-gradient(to left, #ffb643, #000442);
+    color: #fff;
 }
 .dashboard-container .no-task-text 
 {
