@@ -6,6 +6,14 @@
     text-decoration: none !important;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active 
+{
+  transition: background-color 9999s ease-in-out 0s;
+}
+
 /* ------ Landing Page ------ */
 /* Navbar */
 
@@ -56,12 +64,10 @@ section.hero-section .hero-container .image
 /* ------ Landing Page Ends ------ */
 
 /* Sign Up/In, Dashboard Body */
-body
+
+body 
 {
-    background: url('https://img.freepik.com/free-photo/view-arrangement-with-keyboard-notebooks_23-2148847749.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
-    background-size: cover;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(10px);
+    background: url('https://img.freepik.com/premium-vector/pattern-seamless-print-spiral-colored-circles-brush-hand-drawn_676239-10407.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
 }
 
 body.register-page p a
@@ -75,8 +81,52 @@ body.register-page p a
 .sign-up-container,
 .sign-in-container
 {
+    margin-top: 1.5rem;
+}
+
+.sign-up-container .sign-up-text 
+{
+    background: #000442;
+    color: #ffb643;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.sign-up-form {
+    height: 95vh;
     background: #ffb643;
     color: #000442;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.sign-up-form input 
+{
+    background: none !important;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000442 !important;
+    color: #000442;
+}
+
+.sign-up-form input:focus
+{
+    transition: 3s ease;
+    border: 1px solid #000442 !important;
+}
+
+.sign-up-form .sign-up-user-box
+{
+    display: flex;
+    height: 5rem;
+    width: 5rem;
+    font-size: 3rem;
+    border-radius: 50%;
+    background: #000442;
+    color: #ffb643;
+    align-items: center;
+    justify-content: center;
 }
 
 .sign-up-container button
@@ -92,16 +142,7 @@ body.register-page p a
     border: 1px solid #000442;
 }
 
-@media (max-width: 688px) 
-{
-    body
-    {
-        background: url('https://img.freepik.com/free-photo/clipboard-with-list-desk-top-view_23-2148938744.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
-        background-repeat: repeat;
-        backdrop-filter: blur(20px) !important;
-        margin-top: 8rem;
-    }
-}
+
 
 /* Sign In Page */
 .sign-in-container button
