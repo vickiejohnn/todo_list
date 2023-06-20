@@ -17,9 +17,13 @@ input:-webkit-autofill:active
 /* ------ Landing Page ------ */
 /* Navbar */
 
-nav.navbar 
+body.index-body {
+    background: #000442;
+}
+
+nav.navbar a
 {
-    color: #000442;
+    color: #ffb643;
 }
 
 nav.navbar .navbar-brand 
@@ -29,12 +33,25 @@ nav.navbar .navbar-brand
     text-shadow: 1px 1px .5px #000442;
 }
 
+nav.navbar button
+{
+    background: #ffb643;
+    color: #000442;
+}
+
+nav.navbar button:hover
+{
+    background: none;
+    border: 1px solid #ffb643;
+    color: #ffb643;
+}
+
 /* Hero */
 
 section.hero-section .hero-container
 {
-    background: #000442;
-    height: 95vh;
+    /* background: #000442; */
+    height: 100vh;
 }
 
 section.hero-section .hero-container .get-started h3
@@ -56,16 +73,33 @@ section.hero-section .hero-container .get-started button:hover
     border: 1px solid #ffb643;
 }
 
-section.hero-section .hero-container .image 
+section.hero-section .hero-container .homepage-img-box
+{
+    background: #8D8FFE;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+section.hero-section .hero-container .index-img-box 
 {
     text-align: center;
-    padding-top: 5rem;
+    height: 100%;
+    width: 100%;
+    background:#ffb643;
+    border-radius: 50%;
+}
+
+section.hero-section .hero-container .index-img
+{
+    border-radius: 50%;
 }
 /* ------ Landing Page Ends ------ */
 
 /* Sign Up/In, Dashboard Body */
 
-body 
+body
 {
     background: url('https://img.freepik.com/premium-vector/pattern-seamless-print-spiral-colored-circles-brush-hand-drawn_676239-10407.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
 }
@@ -78,13 +112,13 @@ body.register-page p a
 
 /* ------ Sign Up Page ------ */
 
-.sign-up-container,
+.auth-container,
 .sign-in-container
 {
     margin-top: 1.5rem;
 }
 
-.sign-up-container .sign-up-text 
+.auth-container .sign-up-text 
 {
     background: #000442;
     color: #ffb643;
@@ -92,7 +126,7 @@ body.register-page p a
     border-bottom-left-radius: 2rem;
 }
 
-.sign-up-form {
+.auth-form {
     height: 95vh;
     background: #ffb643;
     color: #000442;
@@ -100,7 +134,7 @@ body.register-page p a
     border-bottom-right-radius: 2rem;
 }
 
-.sign-up-form input 
+.auth-form input 
 {
     background: none !important;
     border: 0 !important;
@@ -110,13 +144,13 @@ body.register-page p a
     color: #000442;
 }
 
-.sign-up-form input:focus
+.auth-form input:focus
 {
     transition: 3s ease;
     border: 1px solid #000442 !important;
 }
 
-.sign-up-form .sign-up-user-box
+.auth-form .auth-user-box
 {
     display: flex;
     height: 5rem;
@@ -129,13 +163,13 @@ body.register-page p a
     justify-content: center;
 }
 
-.sign-up-container button
+.auth-container button
 {
     background: #000442;
     color: #ffb643;
 }
 
-.sign-up-container button:hover
+.auth-container button:hover
 {
     background: #ffb643;
     color: #000442;
