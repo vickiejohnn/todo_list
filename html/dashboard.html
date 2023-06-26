@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../stylesheet/style.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Devking - Dashboard</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheet/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Devking - Dashboard</title>
+</head>
 
-    <body>
-        <div class="container-fluid dashboard-container row shadow mx-auto">
-            <div class="col-12 col-md-4 p-2 p-md-4 rounded">
-                <div class="todo todo-form bg-info rounded p-2 p-md-4">
-                    <nav class="border-bottom mb-2 d-block d-md-none text-white">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="welcome-user sm-welcome"></div>
-                            </div>
-                            <div class="col-6">
-                                <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
-                            </div>
-                        </div>
-                    </nav>
-
-                    <h2 class="text-center todo-heading text-decoration-underline">Add Task</h2>
-                    <div class="form-group my-3">
-                        <input type="text" class="form-control" placeholder="Enter todo title..." id="title">
-                    </div>
-                    <div class="form-group my-3">
-                        <input type="text" class="form-control" placeholder="Enter todo category..." id="category">
-                    </div>
-                    <div class="form-group my-3">
-                        <input type="text" class="form-control" placeholder="Enter todo description..." id="description">
-                    </div>
-                    <div class="form-group my-3">
-                        <input type="datetime-local" class="form-control" placeholder="Enter todo time..." id="time">
-                    </div>
-                    <div class="form-group my-3">
-                        <button class="btn add-todo-btn fw-bold w-100" id="addTodoBtn">Add Todo</button>
-                    </div>
-                    <div class="form-img text-center d-none d-md-block">
-                        <img src="../img/dashboard-img-1.png" alt="" class="w-50">
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-8 p-2 p-md-4 rounded">
-                <div class="todo user-task p-2 p-md-4 bg-info rounded">
-                    <nav class="border-bottom mb-2 d-none d-md-block">
-                        <div class="row">
-                            <div class="col-6">
-                                <div class="welcome-user lg-welcome"></div>
-                            </div>
-                            <div class="col-6">
-                                <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
-                            </div>
-                        </div>
-                    </nav>
-
-                    <h2 class="text-center todo-heading text-decoration-underline">Your Tasks</h2>
-                    <div class="no-task">
-                        <div class="no-task-text rounded p-2 text-center">
-                            <h5 class="no-task-h5">You have no task yet, kindly add your tasks...</h5>
-                        </div>
-                        <div class="no-task-img text-center">
-                            <img src="../img/dashboard-img.png" class="w-50" alt="">
-                        </div>
-                    </div>
-                    
+<body>
+    <div class="container-fluid dashboard-container row shadow mx-auto">
+        <div class="col-12 col-md-4 p-2 p-md-4 rounded">
+            <div class="todo todo-form rounded p-2 p-md-4">
+                <nav class="border-bottom mb-2 d-block d-md-none">
                     <div class="row">
-                        <div class="col-12 col-md-6">
-                            <div class="row rounded" id="displayTasks"></div>
+                        <div class="col-6">
+                            <div class="welcome-user sm-welcome"></div>
                         </div>
-                        <div class="col-6 task-image d-none d-md-block">
-                            <div class="text-center">
-                                <img src="../img/dashboard-img.png" class="w-100" alt="">
-                            </div>
+                        <div class="col-6">
+                            <a href="signIn.html"><button class="btn logout-btn float-end p-0">Logout</button></a>
                         </div>
                     </div>
+                </nav>
 
+                <h2 class="text-center todo-form-heading text-decoration-underline">Add Task</h2>
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" placeholder="Enter todo title..." id="title">
+                </div>
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" placeholder="Enter todo category..." id="category">
+                </div>
+                <div class="form-group my-3">
+                    <input type="text" class="form-control" placeholder="Enter todo description..." id="description">
+                </div>
+                <div class="form-group my-3">
+                    <input type="datetime-local" class="form-control" placeholder="Enter todo time..." id="time">
+                </div>
+                <div class="form-group my-3">
+                    <button class="btn add-todo-btn fw-bold w-100" id="addTodoBtn">Add Todo</button>
+                </div>
+                <div class="form-img text-center d-none d-md-block">
+                    <img src="../img/dashboard-img-1.png" alt="" class="w-50">
                 </div>
             </div>
         </div>
+        <div class="col-12 col-md-8 p-2 p-md-4 rounded">
+            <div class="todo user-task p-2 p-md-4 rounded">
+                <nav class="border-bottom mb-2 d-none d-md-block">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="welcome-user lg-welcome"></div>
+                        </div>
+                        <div class="col-6">
+                            <a href="signIn.html"><button class="btn logout-btn float-end">Logout</button></a>
+                        </div>
+                    </div>
+                </nav>
 
-    </body>
+                <h2 class="text-center todo-heading text-decoration-underline">Your Tasks</h2>
+                <div class="no-task">
+                    <div class="no-task-text rounded p-2 text-center">
+                        <h5 class="no-task-h5">You have no task yet, kindly add your tasks...</h5>
+                    </div>
+                    <div class="no-task-img text-center">
+                        <img src="../img/dashboard-img.png" class="w-50" alt="">
+                    </div>
+                </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/01305961a7.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="../script/dashboard.js"></script>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="row rounded display-tasks d-none"></div>
+                    </div>
+                    <div class="col-6 task-image d-none d-md-block">
+                        <div class="text-center">
+                            <img src="../img/dashboard-img.png" class="w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/01305961a7.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../script/dashboard.js"></script>
 
 </html>

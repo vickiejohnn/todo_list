@@ -7,11 +7,10 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active 
-{
-  transition: background-color 9999s ease-in-out 0s;
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 40px #ffb643 inset !important;
 }
 
 /* ------ Landing Page ------ */
@@ -50,7 +49,6 @@ nav.navbar button:hover
 
 section.hero-section .hero-container
 {
-    /* background: #000442; */
     height: 100vh;
 }
 
@@ -95,6 +93,19 @@ section.hero-section .hero-container .index-img
 {
     border-radius: 50%;
 }
+
+@media (max-width: 688px)
+{
+    section.hero-section .hero-container
+    {
+        height: 80vh;
+    }
+    section.hero-section .hero-container .homepage-img-box
+    {
+        width: 90%;
+        margin: auto;
+    }
+}
 /* ------ Landing Page Ends ------ */
 
 /* Sign Up/In, Dashboard Body */
@@ -110,10 +121,9 @@ body.register-page p a
     font-weight: bold;
 }
 
-/* ------ Sign Up Page ------ */
+/* ------ Sign Up/In Page ------ */
 
-.auth-container,
-.sign-in-container
+.auth-container
 {
     margin-top: 1.5rem;
 }
@@ -132,6 +142,23 @@ body.register-page p a
     color: #000442;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
+}
+
+@media (max-width: 688px)
+{
+    .auth-container
+    {
+        margin-top: 0;
+    }
+    .auth-form
+    {
+        height: 100vh;
+        border-radius: 0;
+    }
+    .sm-auth-text
+    {
+        color: #000442;
+    }
 }
 
 .auth-form input 
@@ -174,35 +201,20 @@ body.register-page p a
     background: #ffb643;
     color: #000442;
     border: 1px solid #000442;
-}
-
-
-
-/* Sign In Page */
-.sign-in-container button
-{
-    background: #000442;
-    color: #ffb643;
-}
-
-.sign-in-container button:hover
-{
-    background: #ffb643;
-    color: #000442;
-    border: 1px solid #000442;
-}
-
-/* ------ Sign Up Page Ends ------ */
+} /* -- Sign Up/In Page Ends -- */
 
 /* ------ Dashboard ------ */
 
 .dashboard-container .todo-form
 {
-    background-image: linear-gradient(to left, #000442, #ffb643);
+    background: #ffb643;
+}
+.dashboard-container .todo-form .todo-form-heading {
+    color: #000442;
 }
 .dashboard-container .user-task
 {
-    background-image: linear-gradient(to right, #000442, #ffb643);
+    background: #000442;
 }
 .dashboard-container .todo-heading
 {
@@ -212,27 +224,31 @@ body.register-page p a
 {
     color: #ffb643;
 }
+.dashboard-container .welcome-user .welcome-text-sm
+{
+    color: #000442;
+}
 .dashboard-container .logout-btn
 {
-    background: #000442;
-    color: #ffb643;
+    background: #ffb643;
+    color: #000442;
 }
 .dashboard-container .logout-btn:hover
 {
-    border: .5px solid #000442;
+    border: .5px solid #ffb643;
     background: none;
-    color: #000442;
+    color: #ffb643;
 }
 .dashboard-container .add-todo-btn 
 {
     background: #000442;
     color: #ffb643;
-    transition: 1s ease;
 }
 .dashboard-container .add-todo-btn:hover 
 {
-    background: linear-gradient(to left, #ffb643, #000442);
-    color: #fff;
+    background: none;
+    border: .5px solid #000442;
+    color: #000442;
 }
 .dashboard-container .no-task-text 
 {
