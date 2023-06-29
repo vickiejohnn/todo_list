@@ -13,12 +13,12 @@ if (isloggedIn !== 'true') {
 // Function to get current user's email
 const getCurrentUser = () => {
   return localStorage.getItem('loggedInUser');
-}
+};
 
 // Function to generate a timestamp-based ID for each to-do
 const generateTodoId = () => {
   return Date.now().toString();
-}
+};
 
 // Variables for dashboard displays
 const welcomeUserSm = document.querySelector('.sm-welcome');
@@ -41,8 +41,8 @@ const displayTodo = () => {
   
   if (user) {
     console.log(user);
-    welcomeUserSm.innerHTML = `<h5 class="welcome-text-sm">Welcome, ${user.firstName}</h5>`
-    welcomeUserLg.innerHTML = `<h5 class="fw-bold welcome-text">Welcome, ${user.firstName}</h5>`
+    welcomeUserSm.innerHTML = `<h5 class="welcome-text-sm">Welcome, ${user.firstName}</h5>`;
+    welcomeUserLg.innerHTML = `<h5 class="fw-bold welcome-text">Welcome, ${user.firstName}</h5>`;
     
     const todoList = document.querySelector('.row.rounded.display-tasks');
     todoList.innerHTML = ''; // Clear the existing list
@@ -83,8 +83,8 @@ const displayTodo = () => {
         listItem.innerHTML = todoContent;
         todoList.appendChild(listItem);
       });
-    }
-  }
+    };
+  };
 };
 
 // Function to add new item
@@ -115,7 +115,7 @@ const addTodo = () => {
       localStorage.setItem('localUsers', JSON.stringify(allUsers));
     }
   } else {
-    swal('Invalid Details!', 'Kindly fill all fields correctly.', 'error')
+    swal('Invalid Details!', 'Kindly fill all fields correctly.', 'error');
   }
 };
 
@@ -125,8 +125,8 @@ const addTodoBtn = document.getElementById('addTodoBtn');
 // Button to trigger addTodo function
 addTodoBtn.addEventListener('click', () => {
   addTodo();
-  window.location.href = 'dashboard.html'
-})
+  window.location.href = 'dashboard.html';
+});
 
 // Trigger the displayTodo function to initially display the items
 displayTodo();
