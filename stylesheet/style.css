@@ -9,8 +9,25 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
+input:-webkit-autofill:active  
+{
     -webkit-box-shadow: 0 0 0 40px #ffb643 inset !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #ffb643;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #000442;
+    border-radius: 3rem;
 }
 
 /* ------ Landing Page ------ */
@@ -173,7 +190,6 @@ body.register-page p a
 
 .auth-form input:focus
 {
-    transition: 3s ease;
     border: 1px solid #000442 !important;
 }
 
@@ -209,47 +225,73 @@ body.register-page p a
 {
     background: #ffb643;
 }
-.dashboard-container .todo-form .todo-form-heading {
+
+.dashboard-container .todo-form .todo-form-heading 
+{
     color: #000442;
 }
+
+.dashboard-container .todo-form input
+{
+    background: none !important;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000442 !important;
+    color: #000442;
+}
+
+.dashboard-container .todo-form input:focus
+{
+    border: 1px solid #000442 !important;
+}
+
 .dashboard-container .user-task
 {
     background: #000442;
 }
+
 .dashboard-container .todo-heading
 {
     color: #ffb643;
 }
+
 .dashboard-container .welcome-user .welcome-text
 {
     color: #ffb643;
 }
+
 .dashboard-container .welcome-user .welcome-text-sm
 {
     color: #000442;
 }
+
 .dashboard-container .logout-btn
 {
     background: #ffb643;
     color: #000442;
 }
+
 .dashboard-container .logout-btn:hover
 {
     border: .5px solid #ffb643;
     background: none;
     color: #ffb643;
 }
+
 .dashboard-container .add-todo-btn 
 {
     background: #000442;
     color: #ffb643;
 }
+
 .dashboard-container .add-todo-btn:hover 
 {
     background: none;
     border: .5px solid #000442;
     color: #000442;
 }
+
 .dashboard-container .no-task-text 
 {
     background: #ffb643;
