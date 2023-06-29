@@ -75,21 +75,21 @@ const displayTodo = () => {
         const todoContent = `
         <div class="col-12">
           <div class="text-light">
-                <h4 class="text-warning">${index + 1}</h4>
-                <h5><span class="text-warning">Title:</span> <span>${(todo.todoTitle).toUpperCase()}</span>  </h5>
-                <p><span class="text-warning">Category:</span> <span>${(todoCategoryCap)}</span>  </p>
-                <p><span class="text-warning">Description:</span> <span>${todo.todoDescription}</span>  </p>
-                <i><span class="text-warning">Date-Time:</span> <span>${todo.todoTime}</span>  </i>
+            <h4 class="text-warning">${index + 1}</h4>
+            <h5><span class="text-warning">Title:</span> <span>${(todo.todoTitle).toUpperCase()}</span>  </h5>
+            <p><span class="text-warning">Category:</span> <span>${(todoCategoryCap)}</span>  </p>
+            <p><span class="text-warning">Description:</span> <span>${todo.todoDescription}</span>  </p>
+            <i><span class="text-warning">Date-Time:</span> <span>${todo.todoTime}</span>  </i>
           </div>
         </div>
         <div class="col-12">
           <div class="row todo-btn">
-                <div class="col-6">
-                <button class="btn btn-warning">Edit</button>
-                </div>
-                <div class="col-6">
-                <button class="btn btn-danger float-end">Delete</button>
-                </div>
+              <div class="col-6">
+                <button class="btn btn-warning" onclick="editTodo()">Edit</button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-danger float-end" onclick="deleteTodo()">Delete</button>
+              </div>
           </div>
         </div>
         `;
@@ -185,7 +185,7 @@ const deleteAllTodo = () => {
         });
       } else {
         swal("Your todo is safe!");
-      }
+      };
     });
   };
 };
@@ -194,3 +194,44 @@ const deleteAllTodo = () => {
 deleteAllBtn.addEventListener('click', () => {
   deleteAllTodo();
 });
+
+// Function to delete a to-do item
+const deleteTodo = () => {
+  // Variables for user details
+  const email = getCurrentUser();
+  const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
+  const user = allUsers[email];
+
+  if (user) {
+    // Variable for user to-do array
+    const todoArray = user.allTodo;
+
+    // Loop through the array and return the item
+    const found = todoArray.find((item)=> {
+      return item;
+    });
+
+    // Confirm and delete the found item
+    if (found) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover the item!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          user.allTodo.splice(found, 1);
+          localStorage.setItem('localUsers', JSON.stringify(allUsers));
+          window.location.href = 'dashboard.html';
+          swal("Poof! The item has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your item is safe!");
+        };
+      });
+    };
+  };
+};
