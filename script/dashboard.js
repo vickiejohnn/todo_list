@@ -41,12 +41,11 @@ const displayTodo = () => {
   const email = getCurrentUser();
   const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
   const user = allUsers[email];
-  
+
   if (user) {
-    console.log(user);
     welcomeUserSm.innerHTML = `<h5 class="welcome-text-sm">Welcome, ${(user.firstName).toUpperCase()}</h5>`;
     welcomeUserLg.innerHTML = `<h5 class="fw-bold welcome-text">Welcome, ${(user.firstName).toUpperCase()}</h5>`;
-    
+
     const todoList = document.querySelector('.row.rounded.display-tasks');
     todoList.innerHTML = ''; // Clear the existing list
 
@@ -65,7 +64,7 @@ const displayTodo = () => {
         listItem.classList.add('border-bottom', 'py-2');
 
         // Capitalize to-do category
-        const category = todo.todoTitle
+        const category = todo.todoCategory
         const firstLetter = category.charAt(0);
         const firstLetterCap = firstLetter.toUpperCase();
         const restLetters = category.slice(1);
@@ -85,10 +84,10 @@ const displayTodo = () => {
         <div class="col-12">
           <div class="row todo-btn">
               <div class="col-6">
-                <button class="btn btn-warning" onclick="editTodo()">Edit</button>
+                <button class="btn btn-warning" onclick="editTodo(${index})">Edit</button>
               </div>
               <div class="col-6">
-                <button class="btn btn-danger float-end" onclick="deleteTodo()">Delete</button>
+                <button class="btn btn-danger float-end" onclick="deleteTodo(${index})">Delete</button>
               </div>
           </div>
         </div>
@@ -107,54 +106,84 @@ const addTodo = () => {
   const todoTitle = title.value;
   const todoCategory = category.value;
   const todoDescription = description.value;
-  const initialTodoTime = time.value;
 
-  // Convert date and time to a more readable format
-  const dateTime = new Date(initialTodoTime);
-  const formattedDate = dateTime.toLocaleDateString();
-  const formattedTime = dateTime.toLocaleTimeString();
-  const todoTime = `${formattedDate} ${formattedTime}`; // Formatted date/time
-  const todoId = generateTodoId(); // Generate unique ID
-
-  if (todoTitle !== '' || todoCategory !== '' || todoDescription !== '' || todoTime !== '') {
-    // Variables for user details
-    const email = getCurrentUser();
-    const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
-    const user = allUsers[email];
+  if (time.value === '') {
+    const todoTime = ''
+    const todoId = generateTodoId(); // Generate unique ID
   
-    if (user) {
-      const todoSchema = {
-        todoTitle,
-        todoCategory,
-        todoDescription,
-        todoTime,
-        todoId
+    if (todoTitle !== '' || todoCategory !== '' || todoDescription !== '' || todoTime !== '') {
+      // Variables for user details
+      const email = getCurrentUser();
+      const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
+      const user = allUsers[email];
+  
+      if (user) {
+        const todoSchema = {
+          todoTitle,
+          todoCategory,
+          todoDescription,
+          todoTime,
+          todoId
+        };
+  
+        user.allTodo.push(todoSchema);
+        localStorage.setItem('localUsers', JSON.stringify(allUsers));
       };
-    
-      user.allTodo.push(todoSchema);
-      localStorage.setItem('localUsers', JSON.stringify(allUsers));
+    } else {
+      swal('Invalid Details!', 'Kindly fill the fields correctly.', 'error');
     };
   } else {
-    swal('Invalid Details!', 'Kindly fill all fields correctly.', 'error');
+    const initialTodoTime = time.value;
+    // Convert date and time to a more readable format
+    const dateTime = new Date(initialTodoTime);
+    const formattedDate = dateTime.toLocaleDateString();
+    const formattedTime = dateTime.toLocaleTimeString();
+    const todoTime = `${formattedDate} ${formattedTime}`|| {}; // Formatted date/time
+    const todoId = generateTodoId(); // Generate unique ID
+  
+    if (todoTitle !== '' || todoCategory !== '' || todoDescription !== '' || todoTime !== '') {
+      // Variables for user details
+      const email = getCurrentUser();
+      const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
+      const user = allUsers[email];
+  
+      if (user) {
+        const todoSchema = {
+          todoTitle,
+          todoCategory,
+          todoDescription,
+          todoTime,
+          todoId
+        };
+  
+        user.allTodo.push(todoSchema);
+        localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      };
+    } else {
+      swal('Invalid Details!', 'Kindly fill the fields correctly.', 'error');
+    };
+  }
+};
+
+// Functions for addTodo event listener callbacks
+const addTodoButtonClickHandler = () => {
+  addTodo();
+  window.location.href = 'dashboard.html';
+};
+
+const enterKeyPressHandler = (event) => {
+  if (event.key === 'Enter') {
+    addTodo();
+    window.location.href = 'dashboard.html';
   }
 };
 
 // Variable for addTodo button
 const addTodoBtn = document.getElementById('addTodoBtn');
 
-// Trigger addTodo function with button
-addTodoBtn.addEventListener('click', () => {
-  addTodo();
-  window.location.href = 'dashboard.html';
-});
-
-// Trigger addTodo function with ENTER key
-window.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    addTodo();
-    window.location.href = 'dashboard.html';
-  };
-});
+// Add event listeners using the named functions
+addTodoBtn.addEventListener('click', addTodoButtonClickHandler);
+window.addEventListener('keydown', enterKeyPressHandler);
 
 // Trigger the displayTodo function to initially display the items
 displayTodo();
@@ -175,18 +204,18 @@ const deleteAllTodo = () => {
       buttons: true,
       dangerMode: true,
     })
-    .then((willDelete) => {
-      if (willDelete) {
-        user.allTodo.splice(0);
-        localStorage.setItem('localUsers', JSON.stringify(allUsers))
-        window.location.href = 'dashboard.html'
-        swal("Poof! Your todo has been deleted!", {
-          icon: "success",
-        });
-      } else {
-        swal("Your todo is safe!");
-      };
-    });
+      .then((willDelete) => {
+        if (willDelete) {
+          user.allTodo.splice(0);
+          localStorage.setItem('localUsers', JSON.stringify(allUsers))
+          window.location.href = 'dashboard.html'
+          swal("Poof! Your todo has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your todo is safe!");
+        };
+      });
   };
 };
 
@@ -196,42 +225,177 @@ deleteAllBtn.addEventListener('click', () => {
 });
 
 // Function to delete a to-do item
-const deleteTodo = () => {
+const deleteTodo = (index) => {
   // Variables for user details
   const email = getCurrentUser();
   const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
   const user = allUsers[email];
-
-  if (user) {
-    // Variable for user to-do array
-    const todoArray = user.allTodo;
-
-    // Loop through the array and return the item
-    const found = todoArray.find((item)=> {
-      return item;
-    });
-
-    // Confirm and delete the found item
-    if (found) {
-      swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover the item!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          user.allTodo.splice(found, 1);
-          localStorage.setItem('localUsers', JSON.stringify(allUsers));
-          window.location.href = 'dashboard.html';
-          swal("Poof! The item has been deleted!", {
-            icon: "success",
-          });
-        } else {
-          swal("Your item is safe!");
-        };
+  const todoIndex = index;
+    
+  // Confirm and delete item
+  swal({
+    title: "Are you sure?",
+    text: "Once deleted, you will not be able to recover the item!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      user.allTodo.splice(todoIndex, 1);
+      localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      window.location.href = 'dashboard.html';
+      swal("Poof! The item has been deleted!", {
+        icon: "success",
       });
+    } else {
+      swal("Your item is safe!");
+    };
+  });
+};
+
+// Variable for to-do form heading
+const formHeading = document.querySelector('.todo-form-heading');
+
+// Function to edit a to-do item
+const editTodo = (index) => {
+  // Variables for user details
+  const email = getCurrentUser();
+  const allUsers = JSON.parse(localStorage.getItem('localUsers')) || {};
+  const user = allUsers[email];
+  // Retrieve specific todo using the index
+  const todo = user.allTodo[index];
+
+  // Check if the todo has the least one of the required properties
+  if (todo && (todo.todoTitle || todo.todoCategory || todo.todoDescription || todo.todoTime)) {
+    // Edit to-do form displays
+    formHeading.innerText = 'Edit Task';
+    addTodoBtn.innerText = 'Update Todo';
+    title.value = todo.todoTitle;
+    category.value = todo.todoCategory;
+    description.value = todo.todoDescription;
+
+    if (!todo.todoTime) {
+      // Set time input field to empty
+      time.value = '';
+  
+      // Function to update edited todo
+      const updateTodo = () => {
+        // Update the todo object with the new values
+        todo.todoTitle = title.value;
+        todo.todoCategory = category.value;
+        todo.todoDescription = description.value;
+
+        if (time.value === '') {
+          // Set time from the todo object to empty
+          todo.todoTime = '';
+      
+          // Save the updated todo to localStorage
+          localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      
+          // Redirect to the dashboard or update the display as needed
+          window.location.href = 'dashboard.html'
+
+        } else {
+          const initialTodoTime = time.value;
+      
+          // Convert date and time to a more readable format
+          const dateTime = new Date(initialTodoTime);
+          const formattedDate = dateTime.toLocaleDateString();
+          const newFormattedTime = dateTime.toLocaleTimeString();
+          todo.todoTime = `${formattedDate} ${newFormattedTime}`; // Formatted date/time
+
+          // Save the updated todo to localStorage
+          localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      
+          // Redirect to the dashboard or update the display as needed
+          window.location.href = 'dashboard.html'
+        };
+      };
+  
+      // Remove event listeners for addTodo functions
+      addTodoBtn.removeEventListener('click', addTodoButtonClickHandler);
+      window.removeEventListener('keydown', enterKeyPressHandler);
+  
+      // Functions for updateTodo event listener callbacks
+      const updateTodoButtonClickHandler = () => {
+        updateTodo();
+      };
+  
+      const updateTodoEnterKeyPressHandler = (event) => {
+        if (event.key === 'Enter') {
+          updateTodo();
+        }
+      };
+  
+      // Add event listeners using the named functions
+      addTodoBtn.addEventListener('click', updateTodoButtonClickHandler);
+      window.addEventListener('keydown', updateTodoEnterKeyPressHandler);
+  
+      return; // Exit this function if everything is successful
+
+    } else {
+      // Covert date and time back to the original format and display to the input
+      const formattedTime = todo.todoTime;
+      let originalTime = new Date(formattedTime);
+      const newFormat = originalTime.toISOString().slice(0, 16);
+      time.value = newFormat;
+  
+      // Function to update edited todo
+      const updateTodo = () => {
+        // Update the todo object with the new values
+        todo.todoTitle = title.value;
+        todo.todoCategory = category.value;
+        todo.todoDescription = description.value;
+        
+        if (time.value === '') {
+          // Set todo time to empty
+          todo.todoTime = '';
+      
+          // Save the updated todo to localStorage
+          localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      
+          // Redirect to the dashboard or update the display as needed
+          window.location.href = 'dashboard.html'
+
+        } else {
+          // Declaration for original time and date
+          const initialTodoTime = time.value;
+      
+          // Convert date and time to a more readable format
+          const dateTime = new Date(initialTodoTime);
+          const formattedDate = dateTime.toLocaleDateString();
+          const newFormattedTime = dateTime.toLocaleTimeString();
+          todo.todoTime = `${formattedDate} ${newFormattedTime}`; // Formatted date/time
+
+          // Save the updated todo to localStorage
+          localStorage.setItem('localUsers', JSON.stringify(allUsers));
+      
+          // Redirect to the dashboard or update the display as needed
+          window.location.href = 'dashboard.html'
+        };
+      };
+  
+      // Remove event listeners for addTodo functions
+      addTodoBtn.removeEventListener('click', addTodoButtonClickHandler);
+      window.removeEventListener('keydown', enterKeyPressHandler);
+  
+      // Functions for updateTodo event listener callbacks
+      const updateTodoButtonClickHandler = () => {
+        updateTodo();
+      };
+  
+      const updateTodoEnterKeyPressHandler = (event) => {
+        if (event.key === 'Enter') {
+          updateTodo();
+        }
+      };
+  
+      // Add event listeners using the named functions
+      addTodoBtn.addEventListener('click', updateTodoButtonClickHandler);
+      window.addEventListener('keydown', updateTodoEnterKeyPressHandler);
+  
+      return; // Exit this function if everything is successful
     };
   };
 };
