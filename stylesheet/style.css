@@ -6,34 +6,70 @@
     text-decoration: none !important;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  
-{
-    -webkit-box-shadow: 0 0 0 40px #ffb643 inset !important;
-}
-
 /* width */
-::-webkit-scrollbar {
+::-webkit-scrollbar 
+{
     width: 10px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+::-webkit-scrollbar-track 
+{
     background: #ffb643;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
     background: #000442;
     border-radius: 3rem;
 }
 
-/* ------ Landing Page ------ */
-/* Navbar */
+@media (max-width: 688px) 
+{
+    ::-webkit-scrollbar
+    {
+        display: none;
+    }
+}
 
-body.index-body {
+/* ------ Landing Page ------ */
+
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper
+{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main 
+{
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+header,
+main,
+footer {
+  margin: 0;
+  display: block;
+}
+
+/* Navbar */
+nav.navbar
+{
     background: #000442;
 }
 
@@ -66,13 +102,32 @@ nav.navbar button:hover
 
 section.hero-section .hero-container
 {
-    height: 100vh;
+    background: #000442;
+    height: 105vh !important;
 }
 
 section.hero-section .hero-container .get-started h3
 {
     color: #ffb643;
-    font-size: 3rem;
+    font-size: 2.5rem;
+}
+
+section.hero-section .hero-container .get-started p
+{
+    font-size: 1.5rem;
+}
+
+section.hero-section .hero-container .get-started ul
+{
+    list-style-type: none;
+}
+
+@media (max-width: 688px)
+{
+    section.hero-section .hero-container .get-started ul li i
+    {
+        font-size: .7em !important;
+    }
 }
 
 section.hero-section .hero-container .get-started button
@@ -123,11 +178,50 @@ section.hero-section .hero-container .index-img
         margin: auto;
     }
 }
+
+footer 
+{
+    position: relative;
+    min-height: 80px;
+    background: #ffb643;
+    color: #000442;
+}
+
+@media (max-width: 688px)
+{
+    footer 
+    {
+        position: relative;
+        min-height: 80px;
+        background: #ffb643;
+        color: #000442;
+    }
+}
+
+footer .copyright
+{
+    font-size: 1.2em;
+}
+
+footer .social
+{
+    font-size: 1.5em;
+}
+
+footer .social a
+{
+    color: #000442;
+}
+
+footer .social a:hover
+{
+    color: #6c757d;
+}
 /* ------ Landing Page Ends ------ */
 
 /* Sign Up/In, Dashboard Body */
 
-body
+body.register-page
 {
     background: url('https://img.freepik.com/premium-vector/pattern-seamless-print-spiral-colored-circles-brush-hand-drawn_676239-10407.jpg?size=626&ext=jpg&ga=GA1.2.804562735.1680008345&semt=ais');
 }

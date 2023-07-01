@@ -8,69 +8,123 @@
         <link rel="stylesheet" href="stylesheet/style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <title>Devking - Landing Page</title>
+        <title>TaskMaster - Landing Page</title>
     </head>
 
     <body class="index-body">
-        <!-- ---- Navbar ---- -->
-        <nav class="navbar navbar-expand-lg bg-body-none sticky-top px-0 px-md-5">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Devking</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About us</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Help
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">FAQ</a></li>
-                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
-                                <li><a class="dropdown-item" href="#">Terms and conditions</a></li>
+        <div class="wrapper">
+            <!-- Header -->
+            <header class="mb-5">
+                <!-- ---- Navbar ---- -->
+                <nav class="navbar navbar-expand-lg bg-body-none fixed-top px-0 px-md-5">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="index.html">TaskMaster</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Features</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">About us</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Help
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                        <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                                        <li><a class="dropdown-item" href="#">Terms and conditions</a></li>
+                                    </ul>
+                                </li>
                             </ul>
-                        </li>
-                    </ul>
-                    <div class="nav-btn d-block d-md-none">
-                        <a href="./html/signIn.html"><button class="btn">Sign In</button></a>
+                            <div class="nav-btn d-block d-md-none">
+                                <a href="./html/signIn.html"><button class="btn">Sign In</button></a>
+                            </div>
+                        </div>
+                        <div class="nav-btn d-none d-md-block">
+                            <a href="./html/signIn.html"><button class="btn">Sign In</button></a>
+                        </div>
                     </div>
-                </div>
-                <div class="nav-btn d-none d-md-block">
-                    <a href="./html/signIn.html"><button class="btn">Sign In</button></a>
-                </div>
-            </div>
-        </nav> <!-- Navbar Ends -->
-
-        <!-- ---- Hero Section ---- -->
-        <section class="hero-section">
-            <div class="container-fluid hero-container col-12 p-2 p-md-5">
-                <div class="row">
-                    <div class="col-12 col-md-6 p-2 p-md-5 text-center mt-2 mt-md-5 get-started">
-                        <h3 class="welcome">Welcome to DevKing Todo-List, what are you doing today?</h3>
-                        <a href="./html/signUp.html"><button class="btn w-25 mt-5 fw-bold">Get Started</button></a>
-                    </div>
-                    <div class="col-12 col-md-6 image mt-5 mt-md-0">
-                        <div class="homepage-img-box">
-                            <div class="index-img-box">
-                                <img src="https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150292643.jpg?size=626&ext=jpg&ga=GA1.1.804562735.1680008345&semt=ais" class="index-img w-75" alt="">
+                </nav> <!-- Navbar Ends -->
+        
+            </header> <!-- Header Ends Here -->
+            
+            <!-- Main -->
+            <main>
+                <!-- ---- Hero Section ---- -->
+                <section class="hero-section">
+                    <div class="container-fluid hero-container col-12 p-2 p-md-5">
+                        <div class="row">
+                            <div class="col-12 col-md-6 p-2 p-md-5 text-center get-started">
+                                <h3 class="welcome">Introducing "TaskMaster" - Your Ultimate To-Do List App!</h3>
+                                <p class="text-light d-none d-md-block">Stay organized, boost productivity, and accomplish more with TaskMaster - the powerful and intuitive to-do list app designed to simplify your life. Whether you're a busy professional, a diligent student, or a multitasking parent, TaskMaster is here to revolutionize the way you manage tasks and stay on top of your goals.</p>
+                                <ul>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Effortless Task Management</h4></i></li>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Customizable Categories</i></h4></li>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Track Progress and Celebrate Achievements</i></h4></li>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Set Reminders and Notifications</i></h4></li>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Collaboration Made Easy</i></h4></li>
+                                    <li><h4 class="text-warning"><i class="fa fa-check"> Sync Across Devices</i></h4></li>
+                                </ul>
+                                <a href="./html/signUp.html"><button class="btn w-25 mt-5 fw-bold">Get Started</button></a>
+                            </div>
+                            <div class="col-12 col-md-6 image mt-5 mt-md-0">
+                                <div class="homepage-img-box">
+                                    <div class="index-img-box">
+                                        <img src="https://img.freepik.com/free-vector/hand-drawn-essay-illustration_23-2150292643.jpg?size=626&ext=jpg&ga=GA1.1.804562735.1680008345&semt=ais" class="index-img w-75" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                </section> <!-- Hero Section End --->
+            </main> <!-- Main Ends Here-->
+            
+            <!-- Footer -->
+            <footer class="p-1 p-md-5">
+                <div class="row">
+                    <div class="col-12 col-md-6 social">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <p>Join Us:</p>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex flex-row justify-content-center">
+                                    <a href="https://github.com/vickiejohnn">
+                                        <i class="fa fa-github px-4"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/vee-jay">
+                                        <i class="fa fa-linkedin px-4"></i>
+                                    </a>
+                                    <a href="https://twitter.com/Vickiejohnn20">
+                                        <i class="fa fa-twitter px-4"></i>
+                                    </a>
+                                    <a href="https://web.facebook.com/victorjohn.aderibigbe.7">
+                                        <i class="fa fa-facebook px-4"></i>
+                                    </a>
+                                    <a href="https://wa.me/+2349032317059">
+                                        <i class="fa fa-whatsapp px-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 copyright text-center">
+                        <p class="mt-4">&copy; copyright Victor T. Aderibigbe</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </footer> <! --- Footer Ends Here --- >
+        </div>
+
 
     </body>
 
